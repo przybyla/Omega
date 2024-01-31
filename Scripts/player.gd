@@ -1,66 +1,28 @@
 extends CharacterBody2D
 
-
 const speed = 100.0
-var current_dir = 'none'
 
 func _physics_process(delta):
-	player_movement(delta)
+	update_velocity_from_input()
+	var isCollisionDetected = move_and_slide()
+	if isCollisionDetected:
+		print("collision!")
 	
-func player_movement(delta):
+func update_velocity_from_input():
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = input_direction * speed
+	play_animation(velocity)
 	
-	if Input.is_action_pressed('right'):
-		current_dir = "right"
-		play_animation(1)
-		velocity.x = speed
-		velocity.y = 0
-	elif Input.is_action_pressed('left'):
-		current_dir = "left"
-		play_animation(1)
-		velocity.x = -speed
-		velocity.y = 0
-	elif Input.is_action_pressed('down'):
-		current_dir = "down"
-		play_animation(1)
-		velocity.y = speed
-		velocity.x = 0
-	elif Input.is_action_pressed('up'):
-		current_dir = "up"
-		play_animation(1)
-		velocity.y = -speed
-		velocity.x = 0
-	else:
-		play_animation(0)
-		velocity.x = 0
-		velocity.y = 0
-		
-	move_and_slide()
-	
-func play_animation(movement):
-	var dir = current_dir
+func play_animation(velocity):
 	var anim = $AnimatedSprite2D
 	
-	if dir == 'right':
+	if velocity == Vector2.ZERO:
+		anim.play('idle')
+		return
+	else:
+		anim.play('run')
+	
+	if velocity.x > 0:
 		anim.flip_h = false
-		if movement == 1:
-			anim.play('run')
-		elif movement == 0:
-			anim.play('idle')
-	if dir == 'left':
+	else:
 		anim.flip_h = true
-		if movement == 1:
-			anim.play('run')
-		elif movement == 0:
-			anim.play('idle')
-	if dir == 'up':
-		if movement == 1:
-			anim.play('run')
-		elif movement == 0:
-
-				anim.play('idle')
-	if dir == 'down':
-		if movement == 1:
-			anim.play('run')
-		elif movement == 0:
-			anim.play('idle')
-
