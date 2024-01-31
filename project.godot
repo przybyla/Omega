@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Omega"
-run/main_scene="res://Scenes/player.tscn"
+run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [display]
