@@ -385,7 +385,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnmg8"]
 size = Vector2(10, 16)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(200, 150)
 script = ExtResource("1_ifgse")
 
