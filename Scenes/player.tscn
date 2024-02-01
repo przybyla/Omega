@@ -285,7 +285,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mhilw")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
 "speed": 10.0
 }, {
@@ -308,7 +308,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7ltbm")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -392,10 +392,10 @@ script = ExtResource("1_ifgse")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 4)
 sprite_frames = SubResource("SpriteFrames_4l2cn")
-animation = &"idle"
+animation = &"death"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_hnmg8")
-
-[node name="Camera2D" type="Camera2D" parent="."]
