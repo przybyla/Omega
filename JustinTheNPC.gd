@@ -5,10 +5,10 @@ const speed = 30
 var current_state = IDLE
 var dir = Vector2.RIGHT
 var start_pos
+var player
 
 var is_roaming : bool = true
 var is_chatting : bool = false
-var player 
 var player_in_chat_zone : bool = false
 
 enum {
@@ -56,12 +56,13 @@ func move():
 		move_and_slide()
 
 func _on_chat_detection_area_body_entered(body):
-	if body.has_method("player"):
+	if body.has_method("Player"):
+		player = body
 		player_in_chat_zone = true
 
 
 func _on_chat_detection_area_body_exited(body):
-	if body.has_method("player"):
+	if body.has_method("Player"):
 		player_in_chat_zone = false
 
 
