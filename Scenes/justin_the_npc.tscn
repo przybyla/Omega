@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bucgrpok5275e"]
 
-[ext_resource type="Script" path="res://JustinTheNPC.gd" id="1_irb2p"]
+[ext_resource type="Script" path="res://Scripts/JustinTheNPC.gd" id="1_irb2p"]
 [ext_resource type="Texture2D" uid="uid://dsm2jmu6lhv74" path="res://Assets/Characters/Hero_27.png" id="2_46wvg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olb6d"]

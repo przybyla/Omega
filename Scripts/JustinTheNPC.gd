@@ -21,7 +21,7 @@ func _ready():
 	randomize()
 	start_pos = position
 
-func _process(delta):
+func _physics_process(delta):
 	if current_state == IDLE or current_state == NEW_DIRECTION:
 		animation.play("idle")
 	elif current_state == MOVE and !is_chatting:
@@ -44,7 +44,7 @@ func _process(delta):
 		is_roaming = false
 		is_chatting = true
 		animation.play("idle")
-	print("chatzone:" + str(player_in_chat_zone))
+	#print("chatzone:" + str(player_in_chat_zone))
 
 func choose(array):
 	array.shuffle()
@@ -56,12 +56,14 @@ func move():
 		move_and_slide()
 
 func _on_chat_detection_area_body_entered(body):
+	print("Wchodze do area2d")
 	if body.has_method("Player"):
 		player = body
 		player_in_chat_zone = true
 
 
 func _on_chat_detection_area_body_exited(body):
+	print("Wychodze z area2d")
 	if body.has_method("Player"):
 		player_in_chat_zone = false
 
