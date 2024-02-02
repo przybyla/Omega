@@ -387,6 +387,7 @@ size = Vector2(10, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(200, 150)
+collision_layer = 3
 script = ExtResource("1_ifgse")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

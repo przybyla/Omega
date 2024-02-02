@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bucgrpok5275e"]
 
-[ext_resource type="Script" path="res://Scripts/JustinTheNPC.gd" id="1_irb2p"]
+[ext_resource type="Script" path="res://JustinTheNPC.gd" id="1_irb2p"]
 [ext_resource type="Texture2D" uid="uid://dsm2jmu6lhv74" path="res://Assets/Characters/Hero_27.png" id="2_46wvg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olb6d"]
@@ -98,11 +98,10 @@ radius = 6.0
 height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6dpk"]
-radius = 44.0114
+radius = 24.0208
 
 [node name="JustinTheNPC" type="CharacterBody2D"]
 position = Vector2(259, 13)
-collision_layer = 2
 script = ExtResource("1_irb2p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -119,8 +118,6 @@ shape = SubResource("CapsuleShape2D_nnymp")
 debug_color = Color(0.968627, 0, 0.478431, 0.419608)
 
 [node name="ChatDetectionArea" type="Area2D" parent="."]
-light_mask = 2
-input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea"]
 position = Vector2(0, 1)
