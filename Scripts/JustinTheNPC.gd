@@ -44,7 +44,7 @@ func _physics_process(delta):
 		is_roaming = false
 		is_chatting = true
 		animation.play("idle")
-	#print("chatzone:" + str(player_in_chat_zone))
+	print("chatzone:" + str(player_in_chat_zone))
 
 func choose(array):
 	array.shuffle()
@@ -55,16 +55,15 @@ func move():
 		velocity = dir * speed
 		move_and_slide()
 
-func _on_chat_detection_area_body_entered(body):
-	print("Wchodze do area2d")
-	if body.has_method("Player"):
-		player = body
+func _on_chat_detection_area_body_entered(body):	
+	# check if collider has collision layer 1, which is Player
+	if body.collision_layer == 1:
 		player_in_chat_zone = true
 
 
 func _on_chat_detection_area_body_exited(body):
-	print("Wychodze z area2d")
-	if body.has_method("Player"):
+	# check if collider has collision layer 1, which is Player
+	if body.collision_layer == 1:
 		player_in_chat_zone = false
 
 
