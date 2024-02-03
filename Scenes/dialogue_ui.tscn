@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://62diiqtmv54d"]
+
+[ext_resource type="Script" path="res://Scenes/dialogue.gd" id="1_8tq1t"]
+[ext_resource type="Texture2D" uid="uid://bflkl6kqr3rqd" path="res://Assets/User Interface/DialogueUI/chat_window.png" id="1_m8081"]
+
+[node name="DialogueUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 197.0
+offset_top = 181.0
+offset_right = 258.0
+offset_bottom = 228.0
+script = ExtResource("1_8tq1t")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -54.0
+offset_right = 35.0
+offset_bottom = 7.0
+texture = ExtResource("1_m8081")
+
+[node name="DialogueText" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 19.0
+offset_right = 322.0
+offset_bottom = 199.0
+scale = Vector2(0.15, 0.15)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 29
+text = "I just got in! Got it? Cause i'm Justin! Just-in! hehe"

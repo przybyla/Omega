@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bucgrpok5275e"]
+[gd_scene load_steps=18 format=3 uid="uid://bucgrpok5275e"]
 
 [ext_resource type="Script" path="res://Scripts/JustinTheNPC.gd" id="1_irb2p"]
 [ext_resource type="Texture2D" uid="uid://dsm2jmu6lhv74" path="res://Assets/Characters/Hero_27.png" id="2_46wvg"]
+[ext_resource type="PackedScene" uid="uid://62diiqtmv54d" path="res://Scenes/dialogue_ui.tscn" id="3_epq7g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olb6d"]
 atlas = ExtResource("2_46wvg")
@@ -130,6 +131,13 @@ debug_color = Color(0.439216, 0.6, 0, 0.419608)
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="DialogueUI" parent="." instance=ExtResource("3_epq7g")]
+offset_left = 13.0
+offset_top = -7.0
+offset_right = 74.0
+offset_bottom = 40.0
+
 [connection signal="body_entered" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialog_finished" from="DialogueUI" to="." method="_on_dialogue_ui_dialog_finished"]
