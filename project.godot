@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 
 window/stretch/scale=3.0
 
+[dotnet]
+
+project/assembly_name="Omega"
+
 [input]
 
 up={
