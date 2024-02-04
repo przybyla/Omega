@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://brjqw8n3q0y1h"]
+
+[node name="UiJournalWindow" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 441.0
+grow_vertical = 2
+
+[node name="Contents" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="ItemList" parent="Panel/Contents"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+item_count = 4
+max_columns = 4
+same_column_width = true
+item_0/text = "I"
+item_1/text = "II"
+item_1/selectable = false
+item_2/text = "III"
+item_2/selectable = false
+item_3/text = "IV"
+item_3/selectable = false
+
+[node name="QuestsArea" type="Panel" parent="Panel/Contents"]
+modulate = Color(0.501961, 0.501961, 0.494118, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DetailsArea" type="Panel" parent="Panel/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 459.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestNameLabel" type="RichTextLabel" parent="Panel/Contents/DetailsArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 8.0
+offset_right = -8.0
+offset_bottom = 32.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center][b][u]The search for Cain[/u][/b][/center]"
+
+[node name="QuestDescLabel" type="RichTextLabel" parent="Panel/Contents/DetailsArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[fill][center]Go through the Underground Passage to the Dark Wood, search for the Tree of Inifuss, and recover the scroll.[/center][/fill]"
