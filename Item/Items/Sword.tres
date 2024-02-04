@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cv8xtvqfcr577"]
+
+[ext_resource type="Script" path="res://Item/ItemData.gd" id="1_c18x2"]
+[ext_resource type="Texture2D" uid="uid://66p8cxahto41" path="res://Item/RA_Item_Icons.png" id="2_ri3he"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taeyl"]
+atlas = ExtResource("2_ri3he")
+region = Rect2(144, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_c18x2")
+name = "Sword"
+description = "A gleaming blade forged from lunar steel, it grants its wielder the agility of moonlight. Perfect for stealthy assassins, it leaves foes breathless in the night."
+stackable = false
+texture = SubResource("AtlasTexture_taeyl")
