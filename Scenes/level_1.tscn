@@ -16410,6 +16410,10 @@ position = Vector2(581, -86)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(678, -70)
 process_callback = 0
+limit_left = -384
+limit_top = -176
+limit_right = 784
+limit_bottom = 480
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 drag_horizontal_enabled = true
