@@ -102,7 +102,7 @@ height = 18.0
 radius = 44.0114
 
 [node name="JustinTheNPC" type="CharacterBody2D"]
-position = Vector2(259, 13)
+position = Vector2(-1, 2)
 collision_layer = 2
 script = ExtResource("1_irb2p")
 
@@ -136,6 +136,7 @@ offset_left = 13.0
 offset_top = -7.0
 offset_right = 74.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_exited"]
