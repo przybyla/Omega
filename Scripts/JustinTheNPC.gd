@@ -61,12 +61,16 @@ func npc_move():
 		velocity = dir * speed
 		move_and_slide()
 
-func _on_chat_detection_area_body_entered(body):	
+func _on_chat_detection_area_body_entered(body):
+	if body is PhysicsBody2D == false:
+		return
 	# check if collider has collision layer 1, which is Player
 	if body.collision_layer == 1:
 		player_in_chat_zone = true
 
 func _on_chat_detection_area_body_exited(body):
+	if body is PhysicsBody2D == false:
+		return
 	# check if collider has collision layer 1, which is Player
 	if body.collision_layer == 1:
 		player_in_chat_zone = false
