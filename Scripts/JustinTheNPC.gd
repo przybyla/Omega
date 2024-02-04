@@ -22,6 +22,10 @@ func _ready():
 	start_pos = position
 
 func _physics_process(delta):
+	checking_npc_state()
+	npc_interaction()
+
+func checking_npc_state() -> void:
 	if current_state == IDLE or current_state == NEW_DIRECTION:
 		animation.play("idle")
 	elif current_state == MOVE and !is_chatting:
@@ -38,7 +42,9 @@ func _physics_process(delta):
 			NEW_DIRECTION:
 				dir = choose([Vector2.RIGHT, Vector2.UP,Vector2.DOWN,Vector2.LEFT])
 			MOVE:
-				move()
+				npc_move()
+
+func npc_interaction() -> void:
 	if Input.is_action_just_pressed("interact") and player_in_chat_zone:
 		print("interacting with NPC")
 		$DialogueUI.start()
@@ -49,8 +55,8 @@ func _physics_process(delta):
 func choose(array):
 	array.shuffle()
 	return array.front()
-	
-func move():
+
+func npc_move():
 	if !is_chatting:
 		velocity = dir * speed
 		move_and_slide()
@@ -60,7 +66,6 @@ func _on_chat_detection_area_body_entered(body):
 	if body.collision_layer == 1:
 		player_in_chat_zone = true
 
-
 func _on_chat_detection_area_body_exited(body):
 	# check if collider has collision layer 1, which is Player
 	if body.collision_layer == 1:
@@ -68,11 +73,9 @@ func _on_chat_detection_area_body_exited(body):
 		is_roaming = true
 		is_chatting = false
 
-
 func _on_timer_timeout():
 	$Timer.wait_time = choose([0.5,1,1.5])
 	current_state = choose([IDLE, NEW_DIRECTION, MOVE])
-
 
 func _on_dialogue_ui_dialog_finished():
 	is_chatting = false

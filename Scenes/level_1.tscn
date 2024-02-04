@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b8a6o6dmcp8td"]
+[gd_scene load_steps=23 format=3 uid="uid://b8a6o6dmcp8td"]
 
 [ext_resource type="Texture2D" uid="uid://7jirw2vppq83" path="res://Assets/Tilesets/Sprites/RA_Grounds.png" id="1_evd76"]
 [ext_resource type="Texture2D" uid="uid://b2qbub6m86l5l" path="res://Assets/Tilesets/Sprites/RA_Village.png" id="2_1h4uf"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://csl6g0dsrxojw" path="res://Assets/Tilesets/Sprites/RA_Graveyard.png" id="7_o7p4s"]
 [ext_resource type="PackedScene" uid="uid://cdlggch1xyncb" path="res://Scenes/player.tscn" id="8_6iut2"]
 [ext_resource type="PackedScene" uid="uid://laxm3k8eue0l" path="res://Scenes/NextLevel.tscn" id="9_wud4x"]
-[ext_resource type="PackedScene" uid="uid://bucgrpok5275e" path="res://Scenes/justin_the_npc.tscn" id="10_n1v5s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkvn7"]
 texture = ExtResource("1_evd76")
@@ -16400,6 +16399,3 @@ position = Vector2(678, -70)
 
 [node name="Area2D" parent="." instance=ExtResource("9_wud4x")]
 position = Vector2(673, -106)
-
-[node name="JustinTheNPC" parent="." instance=ExtResource("10_n1v5s")]
-position = Vector2(506, 8)
