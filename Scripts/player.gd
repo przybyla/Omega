@@ -1,13 +1,19 @@
 extends CharacterBody2D
 
-const speed = 100.0
 @export var journalScene: PackedScene
+@export var inventoryData: InventoryData
+const speed = 100.0
 var journalInstance: Node
+var inventoryInstance: Node
+
+signal toggle_inventory()
+signal toggle_jourrnal()
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_J:
-			toggle_journal_ui();
+	if  Input.is_action_just_pressed("journal"):
+		toggle_jourrnal.emit();
+	if Input.is_action_just_pressed("inventory"):
+		toggle_inventory.emit();
 
 func _physics_process(delta):
 	update_velocity_from_input()
@@ -33,20 +39,3 @@ func play_animation(velocity):
 		anim.flip_h = false
 	else:
 		anim.flip_h = true
-
-func toggle_journal_ui():
-	if (journalScene.can_instantiate() == false):
-		push_error("journal scene is not preloaded yet, cannot instantiate!")
-		return
-		
-	
-	if (is_instance_valid(journalInstance)):
-		# if journal instance already exists remove it
-		print("hiding journal UI")
-		journalInstance.queue_free()
-	else:
-		# otherwise instantiate it
-		print("showing journal UI")
-		journalInstance = journalScene.instantiate()
-		add_child(journalInstance)
-	

@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhxn67wfu3s86"]
+
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_kf5j3"]
+[ext_resource type="PackedScene" uid="uid://b8a6o6dmcp8td" path="res://Scenes/level_1.tscn" id="2_748gf"]
+[ext_resource type="PackedScene" uid="uid://cdlggch1xyncb" path="res://Scenes/player.tscn" id="2_r7k0r"]
+[ext_resource type="PackedScene" uid="uid://laxm3k8eue0l" path="res://Scenes/NextLevel.tscn" id="3_eicwp"]
+[ext_resource type="PackedScene" uid="uid://bfsvec243arwm" path="res://Scenes/level_2.tscn" id="3_gys7x"]
+[ext_resource type="PackedScene" uid="uid://bucgrpok5275e" path="res://Scenes/justin_the_npc.tscn" id="4_dqxl1"]
+[ext_resource type="Script" path="res://Scenes/InventoryInterface.gd" id="5_4o5nq"]
+[ext_resource type="PackedScene" uid="uid://bbc50yjtcf7da" path="res://Inventory/Inventory.tscn" id="6_oxqg2"]
+[ext_resource type="PackedScene" uid="uid://cd5srjw5upgiw" path="res://Scenes/UIJournalWindow.tscn" id="7_si1pt"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kf5j3")
+
+[node name="Level_1" parent="." instance=ExtResource("2_748gf")]
+
+[node name="Level_2" parent="." instance=ExtResource("3_gys7x")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("2_r7k0r")]
+position = Vector2(678, -70)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Area2D" parent="." instance=ExtResource("3_eicwp")]
+position = Vector2(673, -106)
+
+[node name="JustinTheNPC" parent="." instance=ExtResource("4_dqxl1")]
+position = Vector2(581, -86)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(678, -70)
+zoom = Vector2(3, 3)
+process_callback = 0
+limit_left = -384
+limit_top = -176
+limit_right = 784
+limit_bottom = 480
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("5_4o5nq")
+
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("6_oxqg2")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Journal" parent="UI" instance=ExtResource("7_si1pt")]
+visible = false
