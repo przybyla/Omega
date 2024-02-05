@@ -11,5 +11,5 @@ region = Rect2(352, 416, 16, 16)
 script = ExtResource("1_bifib")
 name = "Apple"
 description = "Red apple, yummy "
-stackable = false
+stackable = true
 texture = SubResource("AtlasTexture_4hpur")

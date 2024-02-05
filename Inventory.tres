@@ -8,13 +8,13 @@
 [sub_resource type="Resource" id="Resource_w1sg4"]
 script = ExtResource("3_hl360")
 item_data = ExtResource("2_d6pu1")
-quantiti = 10
+quantity = 10
 
 [sub_resource type="Resource" id="Resource_cc1ae"]
 script = ExtResource("3_hl360")
 item_data = ExtResource("4_fmydu")
-quantiti = 1
+quantity = 1
 
 [resource]
 script = ExtResource("1_hifgu")
-slot_datas = Array[ExtResource("3_hl360")]([SubResource("Resource_w1sg4"), SubResource("Resource_cc1ae"), null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("3_hl360")]([SubResource("Resource_w1sg4"), SubResource("Resource_cc1ae"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
