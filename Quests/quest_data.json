@@ -7,8 +7,8 @@
 			"Second part of quest description."
 		],
 		"quest_progress": 0,
-		"quest_completed": false
-		"quest_failed: false
-		"repetable": false
+		"quest_completed": false,
+		"quest_failed": false,
+		"repeatable": false
 	}
 ]
