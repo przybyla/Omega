@@ -1,0 +1,140 @@
+[gd_scene load_steps=19 format=3 uid="uid://dc2nf100ggyul"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_fgony"]
+[ext_resource type="Texture2D" uid="uid://nggbm0cckbv8" path="res://Assets/Enemies/Enemy001/Enemy_001_A.png" id="2_f06rf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klg8v"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy8rl"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46jot"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxqdt"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gopta"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11ofl"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc82m"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1imr8"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d32hh"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t7ai"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_621hs"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6ol"]
+atlas = ExtResource("2_f06rf")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6l2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klg8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy8rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46jot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxqdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gopta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11ofl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc82m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1imr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d32hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t7ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_621hs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6ol")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_racr1"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_megei"]
+radius = 59.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyc1s"]
+radius = 106.0
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(1, 0)
+collision_layer = 2
+script = ExtResource("1_fgony")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_j6l2m")
+animation = &"walk"
+frame_progress = 0.866794
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_racr1")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_megei")
+debug_color = Color(0.968627, 0, 0, 0.419608)
+
+[node name="ChaseArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+shape = SubResource("CircleShape2D_uyc1s")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
