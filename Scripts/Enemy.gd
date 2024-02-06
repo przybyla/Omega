@@ -7,12 +7,11 @@ var direction: Vector2
 var current_state = IDLE
 var player
 
-enum { IDLE, CHASE }
+enum { IDLE, CHASE, ROAM }
 
 func _physics_process(delta):
 	play_animation()
 	enemy_move()
-	print(current_state)
 
 
 func enemy_move() -> void:
