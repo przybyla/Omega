@@ -1,7 +1,7 @@
 extends State
 class_name EnemyIdle
 
-@export var enemy: CharacterBody2D
+@export var enemy := CharacterBody2D
 @export var move_speed := 10.0
 
 var move_direction : Vector2
@@ -12,7 +12,7 @@ func randomize_wander():
 	move_direction = Vector2(randf_range(-1, 1), randf_range(-1,1)).normalized()
 	
 
-func enter():
+func Enter():
 	randomize_wander()
 
 func Update(delta: float):

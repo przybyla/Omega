@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Enemies/GengarEnemy.gd" id="1_7rvsl"]
 [ext_resource type="Texture2D" uid="uid://nggbm0cckbv8" path="res://Assets/Enemies/Enemy001/Enemy_001_A.png" id="2_uwxbf"]
-[ext_resource type="Script" path="res://Scenes/StateMachine.gd" id="3_gakhu"]
+[ext_resource type="Script" path="res://Scripts/States/StateMachine.gd" id="3_gakhu"]
 [ext_resource type="Script" path="res://Scripts/States/EnemyIdle.gd" id="4_up6rj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klg8v"]
@@ -108,6 +108,8 @@ radius = 7.0
 [node name="GengarEnemy" type="CharacterBody2D"]
 position = Vector2(1, 0)
 collision_layer = 2
+motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("1_7rvsl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -125,6 +127,6 @@ shape = SubResource("CircleShape2D_racr1")
 script = ExtResource("3_gakhu")
 initial_state = NodePath("EnemyIdle")
 
-[node name="EnemyIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+[node name="EnemyIdle" type="Node" parent="StateMachine"]
 script = ExtResource("4_up6rj")
 enemy = NodePath("../..")
