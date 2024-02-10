@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://dc2nf100ggyul"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/GengarEnemy.gd" id="1_7rvsl"]
+[ext_resource type="Script" path="res://Enemies/Gengar/GengarEnemy.gd" id="1_7rvsl"]
 [ext_resource type="Texture2D" uid="uid://nggbm0cckbv8" path="res://Assets/Enemies/Enemy001/Enemy_001_A.png" id="2_uwxbf"]
 [ext_resource type="Script" path="res://Scripts/States/StateMachine.gd" id="3_gakhu"]
-[ext_resource type="Script" path="res://Scripts/States/EnemyIdle.gd" id="4_up6rj"]
+[ext_resource type="Script" path="res://Enemies/Gengar/IdleState.gd" id="4_up6rj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klg8v"]
 atlas = ExtResource("2_uwxbf")
@@ -125,8 +125,8 @@ shape = SubResource("CircleShape2D_racr1")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_gakhu")
-initial_state = NodePath("EnemyIdle")
+initial_state = NodePath("IdleState")
 
-[node name="EnemyIdle" type="Node" parent="StateMachine"]
+[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_up6rj")
 enemy = NodePath("../..")
