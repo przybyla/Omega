@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cdlggch1xyncb" path="res://Scenes/player.tscn" id="8_6iut2"]
 [ext_resource type="PackedScene" uid="uid://laxm3k8eue0l" path="res://Scenes/NextLevel.tscn" id="9_wud4x"]
 [ext_resource type="PackedScene" uid="uid://bucgrpok5275e" path="res://Scenes/justin_the_npc.tscn" id="10_gv8m7"]
-[ext_resource type="PackedScene" uid="uid://dc2nf100ggyul" path="res://Scenes/gengar_enemy.tscn" id="11_tpb88"]
+[ext_resource type="PackedScene" uid="uid://dc2nf100ggyul" path="res://Enemies/Gengar/gengar_enemy.tscn" id="11_tpb88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkvn7"]
 texture = ExtResource("1_evd76")
