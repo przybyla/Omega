@@ -21,10 +21,10 @@ func Enter():
 func state_physics_update(delta: float):
 	var direction = player.global_position - actor.global_position
 	
-	if direction.length() > 25:
+	if direction.length() > attack_state.attack_range_max:
 		actor.velocity = direction.normalized() * actor.move_speed
 		
-	elif direction.length() < attack_state.attack_range:
+	elif direction.length() < attack_state.attack_range_min:
 		actor.velocity = Vector2()
 		Transitioned.emit(self, attack_state.name)
 	
