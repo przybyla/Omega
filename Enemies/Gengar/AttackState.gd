@@ -3,6 +3,7 @@ class_name AttackState
 
 @export var chase_state: ChaseState
 @export var idle_state: IdleState
+@export var attack_range: float = 10.0
 
 var player : CharacterBody2D
 var utils = Utils
@@ -22,5 +23,5 @@ func state_physics_update(delta: float):
 	if direction.length() > 25:
 		Transitioned.emit(self, chase_state.name)
 	
-	if direction.length() > 75:
+	if direction.length() > chase_state.chase_range_max:
 		Transitioned.emit(self, idle_state.name)

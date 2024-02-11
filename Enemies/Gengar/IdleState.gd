@@ -51,5 +51,6 @@ func state_physics_update(_delta: float):
 	
 	var direction = player.global_position - actor.global_position
 	
-	if direction.length() > 10 && direction.length() < 75:
+	if direction.length() > chase_state.chase_range_min && \
+		direction.length() < chase_state.chase_range_max:
 		Transitioned.emit(self, chase_state.name)
