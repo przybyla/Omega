@@ -6,12 +6,17 @@ class_name IdleState
 @export var max_wander_distance_from_start: float = 50
 # values range 0.0 (0%) to 1.0 (100%)
 @export var probability_of_standing_in_place: float = 0.25
+@export var chase_state: ChaseState
 
 var player : CharacterBody2D
 var move_direction : Vector2
 var wander_time : float
 var starting_position: Vector2
 var utils = Utils
+
+func _ready():
+	super._ready()
+	assert(chase_state != null, "no reference to chase state found")
 
 func randomize_wander():
 	# we need to generate random duration of this wander
@@ -47,4 +52,4 @@ func state_physics_update(_delta: float):
 	var direction = player.global_position - actor.global_position
 	
 	if direction.length() > 10 && direction.length() < 75:
-		Transitioned.emit(self, "ChaseState")
+		Transitioned.emit(self, chase_state.name)
