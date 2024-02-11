@@ -6,6 +6,9 @@ var current_state : State
 var states : Dictionary = {}
 
 func _ready():
+	# we are waiting for the owner (top level node, player or enemy in case of state machine)
+	# to emit ready event after it's _ready() function has ran
+	await owner.ready
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child

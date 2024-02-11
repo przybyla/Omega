@@ -1,7 +1,6 @@
-extends State
+extends ActorState
 class_name IdleState
 
-@export var enemy: CharacterBody2D
 @export var wander_time_min: float = 1
 @export var wander_time_max: float = 5
 @export var max_wander_distance_from_start: float = 50
@@ -10,6 +9,7 @@ var player : CharacterBody2D
 var move_direction : Vector2
 var wander_time : float
 var starting_position: Vector2
+var utils = Utils
 
 func randomize_wander():
 	# we need to generate random duration of this wander
@@ -22,13 +22,13 @@ func randomize_wander():
 	
 	# if we are going to move, but the max wander distance from starting position has been exceeded
 	# then we should move towards the starting position
-	var current_position_to_starting_position = starting_position - enemy.position
+	var current_position_to_starting_position = starting_position - actor.position
 	if current_position_to_starting_position.length() > max_wander_distance_from_start:
 		move_direction = current_position_to_starting_position.normalized()
 
 func Enter():
-	player = get_tree().get_first_node_in_group("Player")
-	starting_position = enemy.position
+	player = utils.find_player()
+	starting_position = actor.position
 	randomize_wander()
 	print("Wchodze w IdleState")
 
@@ -39,10 +39,10 @@ func state_update(delta: float):
 		randomize_wander()
 
 func state_physics_update(_delta: float):
-	if enemy:
-		enemy.velocity = move_direction * enemy.move_speed
+	if actor:
+		actor.velocity = move_direction * actor.move_speed
 	
-	var direction = player.global_position - enemy.global_position
+	var direction = player.global_position - actor.global_position
 	
 	if direction.length() > 10 && direction.length() < 75:
 		Transitioned.emit(self, "ChaseState")

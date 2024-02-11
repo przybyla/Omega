@@ -235,14 +235,11 @@ shape = SubResource("CircleShape2D_racr1")
 script = ExtResource("3_gakhu")
 initial_state = NodePath("IdleState")
 
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+[node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("4_up6rj")
-enemy = NodePath("../..")
 
-[node name="ChaseState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+[node name="ChaseState" type="Node" parent="StateMachine"]
 script = ExtResource("5_a72po")
-enemy = NodePath("../..")
 
-[node name="AttackState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+[node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("6_ej6tk")
-enemy = NodePath("../..")

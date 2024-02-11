@@ -1,15 +1,15 @@
-extends State
+extends ActorState
 class_name AttackState
 
-@export var enemy: CharacterBody2D
 var player : CharacterBody2D
+var utils = Utils
 
 func Enter():
-	player = get_tree().get_first_node_in_group("Player")
+	player = utils.find_player()
 	print("wchodze w AttackState")
 
 func state_physics_update(delta: float):
-	var direction = player.global_position - enemy.global_position
+	var direction = player.global_position - actor.global_position
 	
 	if direction.length() > 25:
 		Transitioned.emit(self, "ChaseState")

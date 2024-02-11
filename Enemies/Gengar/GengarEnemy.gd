@@ -3,6 +3,7 @@ class_name GengarEnemy
 
 @export var move_speed: float = 10.0
 @export var animated_sprite_2d: AnimatedSprite2D
+@export var attack_range: float = 10.0
 
 func _physics_process(delta):
 	move_and_slide()
