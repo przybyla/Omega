@@ -60,6 +60,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
+slot = ExtResource("9_jn0js")
 
 [node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("9_jn0js")]
 modulate = Color(1, 1, 1, 0.509804)
