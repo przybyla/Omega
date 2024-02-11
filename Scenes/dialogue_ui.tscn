@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://62diiqtmv54d"]
 
-[ext_resource type="Script" path="res://Scenes/dialogue.gd" id="1_8tq1t"]
+[ext_resource type="Script" path="res://Scripts/dialogue.gd" id="1_8tq1t"]
 [ext_resource type="Texture2D" uid="uid://bflkl6kqr3rqd" path="res://Assets/User Interface/DialogueUI/chat_window.png" id="1_m8081"]
 
 [node name="DialogueUI" type="Control"]

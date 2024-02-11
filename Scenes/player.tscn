@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cnhpvwtdarx6n" path="res://Assets/Characters/Hero_26.png" id="1_7k0ed"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ifgse"]
-[ext_resource type="PackedScene" uid="uid://brjqw8n3q0y1h" path="res://Scenes/UIJournalWindow.tscn" id="2_0pnre"]
+[ext_resource type="Resource" uid="uid://bcjc7xum0byk2" path="res://Inventory.tres" id="3_2cbj3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7rnh"]
 atlas = ExtResource("1_7k0ed")
@@ -390,7 +390,7 @@ size = Vector2(10, 16)
 position = Vector2(200, 150)
 collision_mask = 3
 script = ExtResource("1_ifgse")
-journalScene = ExtResource("2_0pnre")
+inventoryData = ExtResource("3_2cbj3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 4)

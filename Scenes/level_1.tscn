@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b8a6o6dmcp8td"]
+[gd_scene load_steps=25 format=3 uid="uid://b8a6o6dmcp8td"]
 
 [ext_resource type="Texture2D" uid="uid://7jirw2vppq83" path="res://Assets/Tilesets/Sprites/RA_Grounds.png" id="1_evd76"]
 [ext_resource type="Texture2D" uid="uid://b2qbub6m86l5l" path="res://Assets/Tilesets/Sprites/RA_Village.png" id="2_1h4uf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cdlggch1xyncb" path="res://Scenes/player.tscn" id="8_6iut2"]
 [ext_resource type="PackedScene" uid="uid://laxm3k8eue0l" path="res://Scenes/NextLevel.tscn" id="9_wud4x"]
 [ext_resource type="PackedScene" uid="uid://bucgrpok5275e" path="res://Scenes/justin_the_npc.tscn" id="10_gv8m7"]
+[ext_resource type="PackedScene" uid="uid://dc2nf100ggyul" path="res://Enemies/Gengar/gengar_enemy.tscn" id="11_tpb88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkvn7"]
 texture = ExtResource("1_evd76")
@@ -16419,3 +16420,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="GengarEnemy" parent="." instance=ExtResource("11_tpb88")]
+position = Vector2(485, 16)

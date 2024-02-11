@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhxn67wfu3s86"]
+
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_kf5j3"]
+[ext_resource type="PackedScene" uid="uid://b8a6o6dmcp8td" path="res://Scenes/level_1.tscn" id="2_748gf"]
+[ext_resource type="PackedScene" uid="uid://cdlggch1xyncb" path="res://Scenes/player.tscn" id="2_wiqgs"]
+[ext_resource type="PackedScene" uid="uid://bfsvec243arwm" path="res://Scenes/level_2.tscn" id="3_gys7x"]
+[ext_resource type="Script" path="res://Scenes/InventoryInterface.gd" id="5_4o5nq"]
+[ext_resource type="PackedScene" uid="uid://bbc50yjtcf7da" path="res://Inventory/Inventory.tscn" id="6_oxqg2"]
+[ext_resource type="PackedScene" uid="uid://cd5srjw5upgiw" path="res://Scenes/UIJournalWindow.tscn" id="7_si1pt"]
+[ext_resource type="PackedScene" uid="uid://d4e5sy8bfxcry" path="res://Inventory/Slot.tscn" id="9_jn0js"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kf5j3")
+player_scene = ExtResource("2_wiqgs")
+
+[node name="Level_1" parent="." instance=ExtResource("2_748gf")]
+
+[node name="Level_2" parent="." instance=ExtResource("3_gys7x")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(678, -70)
+zoom = Vector2(3, 3)
+process_callback = 0
+limit_left = -384
+limit_top = -176
+limit_right = 784
+limit_bottom = 480
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("5_4o5nq")
+
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("6_oxqg2")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("9_jn0js")]
+modulate = Color(1, 1, 1, 0.509804)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="Journal" parent="UI" instance=ExtResource("7_si1pt")]
+visible = false
