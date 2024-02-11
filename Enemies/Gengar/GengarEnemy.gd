@@ -12,7 +12,7 @@ func _physics_process(delta):
 func play_animation():
 	if velocity.length() > 0:
 		animated_sprite_2d.play("walk")
-	if velocity.length() == 0:
+	else:
 		animated_sprite_2d.play("idle")
 
 	if velocity.x > 0:
