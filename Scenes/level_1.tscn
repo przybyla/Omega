@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8a6o6dmcp8td"]
+[gd_scene load_steps=25 format=3 uid="uid://b8a6o6dmcp8td"]
 
 [ext_resource type="Texture2D" uid="uid://7jirw2vppq83" path="res://Assets/Tilesets/Sprites/RA_Grounds.png" id="1_evd76"]
 [ext_resource type="Texture2D" uid="uid://b2qbub6m86l5l" path="res://Assets/Tilesets/Sprites/RA_Village.png" id="2_1h4uf"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dbgi01s4vxi2a" path="res://Assets/Tilesets/Sprites/RA_Wasteland.png" id="5_8velq"]
 [ext_resource type="Texture2D" uid="uid://cokklwv3se47e" path="res://Assets/Tilesets/Sprites/RA_Jungle.png" id="6_weqcf"]
 [ext_resource type="Texture2D" uid="uid://csl6g0dsrxojw" path="res://Assets/Tilesets/Sprites/RA_Graveyard.png" id="7_o7p4s"]
+[ext_resource type="PackedScene" uid="uid://cdlggch1xyncb" path="res://Scenes/player.tscn" id="8_6iut2"]
+[ext_resource type="PackedScene" uid="uid://laxm3k8eue0l" path="res://Scenes/NextLevel.tscn" id="9_wud4x"]
+[ext_resource type="PackedScene" uid="uid://bucgrpok5275e" path="res://Scenes/justin_the_npc.tscn" id="10_gv8m7"]
+[ext_resource type="PackedScene" uid="uid://dc2nf100ggyul" path="res://Enemies/Gengar/gengar_enemy.tscn" id="11_tpb88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkvn7"]
 texture = ExtResource("1_evd76")
@@ -16361,7 +16365,7 @@ sources/5 = SubResource("TileSetAtlasSource_xelyq")
 sources/8 = SubResource("TileSetAtlasSource_6xbyh")
 sources/10 = SubResource("TileSetAtlasSource_o4gji")
 
-[node name="Level_1" type="Node2D"]
+[node name="World" type="Node2D"]
 
 [node name="Ground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_a51qw")
@@ -16391,3 +16395,31 @@ layer_3/name = "Entrance"
 layer_3/tile_data = PackedInt32Array(-524247, 458752, 14, -458711, 458752, 15, -524246, 524288, 14, -458710, 524288, 15, -327639, 1179648, 1, -393176, 1114112, 1, -393177, 1179648, 3, -393175, 1114112, 0, -327640, 1245184, 0, -393174, 1114112, 1)
 layer_4/name = "Rocks"
 layer_4/tile_data = PackedInt32Array(-458709, 1376256, 4, -393173, 1376256, 5, -458708, 1441792, 4, -393172, 1441792, 5)
+
+[node name="Player" parent="." instance=ExtResource("8_6iut2")]
+position = Vector2(678, -70)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Area2D" parent="." instance=ExtResource("9_wud4x")]
+position = Vector2(673, -106)
+
+[node name="JustinTheNPC" parent="." instance=ExtResource("10_gv8m7")]
+position = Vector2(581, -86)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(678, -70)
+zoom = Vector2(3, 3)
+process_callback = 0
+limit_left = -384
+limit_top = -176
+limit_right = 784
+limit_bottom = 480
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="GengarEnemy" parent="." instance=ExtResource("11_tpb88")]
+position = Vector2(485, 16)
