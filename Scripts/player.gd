@@ -1,11 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-@export var journalScene: PackedScene
 @export var inventoryData: InventoryData
 const speed = 100.0
-var journalInstance: Node
-var inventoryInstance: Node
 
 signal toggle_inventory()
 signal toggle_jourrnal()
