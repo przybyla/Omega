@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name GengarEnemy
 
 @export var move_speed: float = 10.0
+@export var animated_sprite_2d: AnimatedSprite2D
 
 func _physics_process(delta):
 	move_and_slide()
@@ -9,11 +10,11 @@ func _physics_process(delta):
 
 func play_animation():
 	if velocity.length() > 0:
-		$AnimatedSprite2D.play("walk")
+		animated_sprite_2d.play("walk")
 	if velocity.length() == 0:
-		$AnimatedSprite2D.play("idle")
+		animated_sprite_2d.play("idle")
 
 	if velocity.x > 0:
-		$AnimatedSprite2D.flip_h = false
+		animated_sprite_2d.flip_h = false
 	else:
-		$AnimatedSprite2D.flip_h = true
+		animated_sprite_2d.flip_h = true

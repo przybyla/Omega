@@ -213,12 +213,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_racr1"]
 radius = 7.0
 
-[node name="GengarEnemy" type="CharacterBody2D"]
+[node name="GengarEnemy" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite_2d")]
 position = Vector2(1, 0)
 collision_layer = 2
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_7rvsl")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
