@@ -2,8 +2,8 @@ extends PanelContainer
 
 signal slot_clicked(index: int, button: int)
 
-@onready var texture_rect = $MarginContainer/TextureRect
-@onready var quantity_label = $QuantityLabel
+@export var texture_rect: TextureRect
+@export var quantity_label: Label
 
 func set_slot_data(slot_data: SlotData) -> void:
 	var item_data = slot_data.item_data

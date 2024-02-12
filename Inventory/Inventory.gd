@@ -1,6 +1,6 @@
 extends PanelContainer
 
-const Slot = preload("res://Inventory/Slot.tscn")
+@export var slot: PackedScene
 
 @onready var item_grid = $MarginContainer/ItemGrid
 
@@ -13,10 +13,10 @@ func populate_item_grid(inventory_data: InventoryData) -> void:
 		child.queue_free()
 		
 	for slot_data in inventory_data.slot_datas:
-		var slot = Slot.instantiate()
-		item_grid.add_child(slot)
+		var slot_instance = slot.instantiate()
+		item_grid.add_child(slot_instance)
 		
-		slot.slot_clicked.connect(inventory_data.on_slot_clicked)
+		slot_instance.slot_clicked.connect(inventory_data.on_slot_clicked)
 		
 		if slot_data:
-			slot.set_slot_data(slot_data)
+			slot_instance.set_slot_data(slot_data)
