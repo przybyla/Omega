@@ -2,8 +2,8 @@ extends Control
 
 var grabbed_slot_data: SlotData
 
-@onready var player_inventory = $PlayerInventory
-@onready var grabbed_slot = $GrabbedSlot
+@export var player_inventory: PanelContainer
+@export var grabbed_slot: PanelContainer
 
 func _physics_process(delta):
 	if grabbed_slot.visible:
